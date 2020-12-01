@@ -2,6 +2,7 @@
 $jsonFilePath = '.\data.json'
 $gitAddAllCommand = 'git add .'
 $gitCommitCommand = 'git commit -m "Example"'
+$gitPullCommand = 'git pull origin main'
 
 # Main
 $json = Get-Content $jsonFilePath | Out-String | ConvertFrom-Json
@@ -20,3 +21,4 @@ $json | ConvertTo-Json | Out-File $jsonFilePath
 
 Invoke-Expression $gitAddAllCommand
 Invoke-Expression $gitCommitCommand
+Invoke-Expression $gitPullCommand
