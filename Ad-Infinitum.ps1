@@ -2,7 +2,7 @@
 $jsonFilePath = '.\data.json'
 $gitAddAllCommand = 'git add .'
 $gitCommitCommand = 'git commit -m "Example"'
-$gitPushCommand = 'git push origin develop'
+$gitPushCommand = 'git push origin main'
 
 # Main
 $json = Get-Content $jsonFilePath | Out-String | ConvertFrom-Json
