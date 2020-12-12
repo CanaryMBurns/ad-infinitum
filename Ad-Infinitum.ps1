@@ -23,7 +23,10 @@ $json | ConvertTo-Json | Out-File $jsonFilePath
 Invoke-Expression $gitAddAllCommand
 Invoke-Expression $gitCommitCommand
 Invoke-Expression $gitPushCommand
-$ghPRCreateCommandResult = Invoke-Expression $ghPRCreateCommand
+Invoke-Expression $ghPRCreateCommand
+
+$XD = Invoke-Expression 'gh pr list'
+
 
 Write-Output $ghPRCreateCommandResult
 
