@@ -3,7 +3,7 @@ $jsonFilePath = '.\data.json'
 $gitAddAllCommand = 'git add .'
 $gitCommitCommand = 'git commit -m "Example"'
 $gitPushCommand = 'git push origin develop'
-$ghPRCommand = 'gh pr create --title "Update" --body "Received"'
+$ghPRCreateCommand = 'gh pr create --title "Update" --body "Received"'
 
 # Main
 $json = Get-Content $jsonFilePath | Out-String | ConvertFrom-Json
@@ -23,4 +23,10 @@ $json | ConvertTo-Json | Out-File $jsonFilePath
 Invoke-Expression $gitAddAllCommand
 Invoke-Expression $gitCommitCommand
 Invoke-Expression $gitPushCommand
-Invoke-Expression $ghPRCommand
+$ghPRCreateCommandResult = Invoke-Expression $ghPRCreateCommand
+
+Write-Output $ghPRCreateCommandResult
+
+#$ghPRMergeCommand = 'gh pr merge https://github.com/CanaryMBurns/ad-infinitum/pull/10 --squash --delete-branch=false'
+
+Invoke-Expression $ghPRMergeCommand
