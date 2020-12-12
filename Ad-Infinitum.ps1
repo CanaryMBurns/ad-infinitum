@@ -3,7 +3,8 @@ $jsonFilePath = '.\data.json'
 $gitAddAllCommand = 'git add .'
 $gitCommitCommand = 'git commit -m "Example"'
 $gitPushCommand = 'git push origin develop'
-$ghPRCommand = 'gh pr create --title "Update" --body "Received"'
+$ghPRCreateCommand = 'gh pr create --title "Update" --body "Received"'
+$ghPRMergeCommand = 'gh pr merge https://github.com/CanaryMBurns/ad-infinitum/pull/10 --squash --delete-branch=false'
 
 # Main
 $json = Get-Content $jsonFilePath | Out-String | ConvertFrom-Json
@@ -23,4 +24,9 @@ $json | ConvertTo-Json | Out-File $jsonFilePath
 Invoke-Expression $gitAddAllCommand
 Invoke-Expression $gitCommitCommand
 Invoke-Expression $gitPushCommand
-Invoke-Expression $ghPRCommand
+Invoke-Expression $ghPRCreateCommand
+
+Invoke-Expression 'gh pr list > PRNumber.txt'
+
+$file = Get-Content -Path .\PRNumber.txt -TotalCount 1
+Write-Output $file
