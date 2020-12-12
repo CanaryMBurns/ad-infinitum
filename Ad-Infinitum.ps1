@@ -30,6 +30,3 @@ Invoke-Expression 'gh pr list > PRNumber.txt'
 
 $file = Get-Content -Path .\PRNumber.txt -TotalCount 1
 Write-Output $file
-
-
-Invoke-Expression $ghPRMergeCommand
