@@ -25,7 +25,7 @@ Invoke-Expression $gitCommitCommand
 Invoke-Expression $gitPushCommand
 Invoke-Expression $ghPRCreateCommand
 
-$XD = Invoke-Expression 'gh pr list'
+Invoke-Expression 'gh pr list > PRNumber.txt'
 
 
 Write-Output $ghPRCreateCommandResult
