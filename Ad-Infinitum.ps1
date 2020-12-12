@@ -4,6 +4,7 @@ $gitAddAllCommand = 'git add .'
 $gitCommitCommand = 'git commit -m "Example"'
 $gitPushCommand = 'git push origin develop'
 $ghPRCreateCommand = 'gh pr create --title "Update" --body "Received"'
+$ghPRMergeCommand = 'gh pr merge https://github.com/CanaryMBurns/ad-infinitum/pull/10 --squash --delete-branch=false'
 
 # Main
 $json = Get-Content $jsonFilePath | Out-String | ConvertFrom-Json
@@ -30,6 +31,5 @@ Invoke-Expression 'gh pr list > PRNumber.txt'
 $file = Get-Content -Path .\PRNumber.txt -TotalCount 1
 Write-Output $file
 
-#$ghPRMergeCommand = 'gh pr merge https://github.com/CanaryMBurns/ad-infinitum/pull/10 --squash --delete-branch=false'
 
 Invoke-Expression $ghPRMergeCommand
