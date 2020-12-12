@@ -3,6 +3,7 @@ $jsonFilePath = '.\data.json'
 $gitAddAllCommand = 'git add .'
 $gitCommitCommand = 'git commit -m "Example"'
 $gitPushCommand = 'git push origin develop'
+$ghPRCommand = 'gh pr create --title "Update" --body "Received"'
 
 # Main
 $json = Get-Content $jsonFilePath | Out-String | ConvertFrom-Json
@@ -22,3 +23,4 @@ $json | ConvertTo-Json | Out-File $jsonFilePath
 Invoke-Expression $gitAddAllCommand
 Invoke-Expression $gitCommitCommand
 Invoke-Expression $gitPushCommand
+Invoke-Expression $ghPRCommand
